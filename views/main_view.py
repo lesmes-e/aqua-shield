@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
 from controllers.eutrofizacion_calculator import EutrofizacionCalculator
 from views.statistics_view import StatisticsView
 from views.news_view import NewsView  # Importamos la nueva vista de noticias
-
+from views.education_view import EducationView
 class MainView(QWidget):
     def __init__(self):
         super().__init__()
@@ -32,7 +32,11 @@ class MainView(QWidget):
         # Botón para mostrar noticias
         self.news_button = QPushButton("Ver Noticias")
         self.news_button.clicked.connect(self.mostrar_noticias)
-
+        
+        # Crear botón para abrir la sección educativa
+        self.education_button = QPushButton("Educación sobre la Eutrofización")
+        self.education_button.clicked.connect(self.mostrar_educacion)
+        layout.addWidget(self.education_button)
         # Agregar widgets al layout
         layout.addWidget(self.nitrogen_label)
         layout.addWidget(self.nitrogen_input)
@@ -67,4 +71,8 @@ class MainView(QWidget):
     def mostrar_noticias(self):
         self.news_window = NewsView()  # Creamos la ventana de noticias
         self.news_window.show()
+    
+    def mostrar_educacion(self):
+        self.education_window = EducationView()  # Crear una nueva ventana de educación
+        self.education_window.show()
 
