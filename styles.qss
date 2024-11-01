@@ -1,0 +1,50 @@
+/* General */
+QWidget {
+    background-color: #EAF4D3; /* Verde pastel claro */
+    color: #2E7D32; /* Verde más oscuro para el texto */
+    font-family: Arial, sans-serif;
+}
+
+/* Botones */
+QPushButton {
+    background-color: #A5D6A7; /* Verde pastel para los botones */
+    border: 1px solid #388E3C; /* Borde más oscuro */
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #81C784; /* Color más claro al pasar el ratón */
+}
+
+QPushButton:pressed {
+    background-color: #66BB6A; /* Color al presionar el botón */
+}
+
+/* Etiquetas (Labels) */
+QLabel {
+    color: #1B5E20; /* Verde más oscuro para etiquetas */
+    font-size: 14px;
+}
+
+/* Cuadros de texto */
+QLineEdit {
+    background-color: #F1F8E9; /* Fondo verde claro para los cuadros de texto */
+    border: 1px solid #388E3C;
+    border-radius: 5px;
+    padding: 5px;
+    color: #2E7D32;
+}
+
+QLineEdit:focus {
+    border: 1px solid #66BB6A; /* Borde verde más claro cuando está en foco */
+}
+
+/* Ventanas (QMainWindow, QDialog) */
+QMainWindow, QDialog {
+    background-color: #EAF4D3; /* Fondo general */
+    border-radius: 15px;
+    padding: 10px;
+}
