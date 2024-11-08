@@ -5,7 +5,7 @@ from views.news_view import NewsView  # Importamos la nueva vista de noticias
 from views.education_view import EducationView
 from views.quiz_view import QuizView
 from controllers.quiz_controller import QuizController
-
+from views.history_view import HistoryView
 
 class MainView(QWidget):
     def __init__(self):
@@ -45,6 +45,13 @@ class MainView(QWidget):
         self.quiz_button = QPushButton("Minijuego: Prueba tus conocimientos")
         self.quiz_button.clicked.connect(self.mostrar_quiz)
         layout.addWidget(self.quiz_button)
+
+        # Botón para abrir el historial
+        self.history_button = QPushButton("Ver Historial de Cálculos")
+        self.history_button.clicked.connect(self.mostrar_historial)
+        layout.addWidget(self.history_button)
+
+        self.setLayout(layout)
         # Agregar widgets al layout
         layout.addWidget(self.nitrogen_label)
         layout.addWidget(self.nitrogen_input)
@@ -64,8 +71,8 @@ class MainView(QWidget):
             nitrogen = float(self.nitrogen_input.text())
             phosphorus = float(self.phosphorus_input.text())
             oxygen = float(self.oxygen_input.text())
-
-            calculator = EutrofizacionCalculator(nitrogen, phosphorus, oxygen)
+            location = "Lago A" # Lugar
+            calculator = EutrofizacionCalculator(nitrogen, phosphorus, oxygen, location=location)
             resultado = calculator.calcular()
 
             QMessageBox.information(self, "Resultado", f"Índice de Eutrofización: {resultado:.2f}")
@@ -88,3 +95,8 @@ class MainView(QWidget):
         self.quiz_controller = QuizController()  # Inicializa el controlador del minijuego
         self.quiz_window = QuizView(self.quiz_controller)  # Crear la ventana del minijuego
         self.quiz_window.show()
+
+    def mostrar_historial(self):
+        """Muestra la ventana del historial de cálculos."""
+        self.history_window = HistoryView()
+        self.history_window.show()
