@@ -6,7 +6,7 @@ from views.education_view import EducationView
 from views.quiz_view import QuizView
 from controllers.quiz_controller import QuizController
 from views.history_view import HistoryView
-
+from PyQt5.QtCore import Qt
 class MainView(QWidget):
     def __init__(self):
         super().__init__()
@@ -25,7 +25,10 @@ class MainView(QWidget):
 
         self.oxygen_label = QLabel("Oxígeno:")
         self.oxygen_input = QLineEdit()
-
+        # Botón para alternar pantalla completa
+        self.fullscreen_button = QPushButton("Alternar Pantalla Completa", self)
+        self.fullscreen_button.clicked.connect(self.toggle_fullscreen)
+        self.fullscreen_button.setGeometry(10, 10, 200, 30)  # Posición y tamaño del botón
         # Botones para calcular y mostrar estadísticas
         self.calculate_button = QPushButton("Calcular")
         self.calculate_button.clicked.connect(self.calcular_eutrofizacion)
@@ -100,3 +103,9 @@ class MainView(QWidget):
         """Muestra la ventana del historial de cálculos."""
         self.history_window = HistoryView()
         self.history_window.show()
+        
+    def toggle_fullscreen(self):
+        if self.isFullScreen():
+            self.showNormal()  # Cambia a modo ventana normal
+        else:
+            self.showFullScreen()  # Cambia a pantalla completa
