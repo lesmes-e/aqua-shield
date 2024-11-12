@@ -19,10 +19,13 @@ class EducationView(QWidget):
                              "lo que provoca el crecimiento desmesurado de algas y plantas acuáticas. Esto puede resultar "
                              "en la disminución de oxígeno en el agua, afectando la vida acuática y el ecosistema.")
         layout.addWidget(description)
-
+        #Url para aprender más
+        networklinks = Qlabel(" iagua    https://www.iagua.es/respuestas/que-es-eutrofizacion" \n
+                                Fundación Aquae   https://www.fundacionaquae.org/wiki/eutrofizacion\n
+                                Wiki   https://es.wikipedia.org/wiki/Eutrofizaci%C3%B3n)
         # Agregamos una imagen educativa
         image_label = QLabel(self)
-        pixmap = QPixmap("ruta/a/la/imagen.jpg")  # Cambia la ruta a donde está la imagen en tu proyecto
+        pixmap = QPixmap("ruta/a/la/imagen.jpg")  # Ruta  donde está la imagen 
         image_label.setPixmap(pixmap)
         image_label.setScaledContents(True)  # Esto hace que la imagen se ajuste al tamaño del label
         layout.addWidget(image_label)
